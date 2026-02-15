@@ -18,7 +18,7 @@ class PCCCValidator:
             "crkyCn": self.api_key,
             "persEcm": pccc,
             "pltxNm": name,
-            "cphoneNo": phone
+            "cralTelno": phone
         }
 
         try:
@@ -38,9 +38,11 @@ class PCCCValidator:
         
         # tCnt가 1이면 일치, 0이면 불일치
         t_cnt = root.findtext(".//tCnt")
-        
+            
         if t_cnt == "1":
             return {"success": True, "message": "인증 성공: 정보가 일치합니다."}
+        elif t_cnt == "-1":
+            return {"success": False, "message": "API키가 유효하지 않습니다."}
         else:
             # 상세 에러 메시지 추출
             error_msg = root.findtext(".//rsltMsg") or "정보가 일치하지 않습니다."
