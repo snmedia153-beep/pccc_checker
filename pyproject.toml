@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
  
 [project]
 name = "pccc-checker"
-version = "0.1.0"
+version = "0.1.1"
 description = "관세청 API를 활용한 개인통관고유부호 유효성 검증 라이브러리"
 readme = "README.md"
 authors = [
